@@ -1,0 +1,64 @@
+spatialite-gui (1.7.1-2) experimental; urgency=low
+
+  * Bump Standards-Version to 3.9.5, no changes required.
+  * Require at least librasterlite version 1.1g-3.
+  * Require at least libspatialite version 4.1.1-5 for libxml2 support.
+  * Re-enable building with libxml2 support.
+
+ -- Bas Couwenberg <sebastic@xs4all.nl>  Sat, 14 Dec 2013 17:43:39 +0100
+
+spatialite-gui (1.7.1-1) experimental; urgency=low
+
+  * New upstream version. (closes: #688328)
+  * Add myself to Uploaders.
+  * Update watch file, incorporate sepwatch changes and handle common mistakes.
+  * Update Homepage URL.
+  * Use canonical URLs in Vcs-* fields.
+  * Update minimum libspatialite version to 4.1.0.
+  * Update minimum libgaiagraphics version to 0.5.
+  * Add build dependency on libxml2-dev.
+  * Add patch to link properly link sqlite3.
+  * Disable libxml2 support, libgaiagraphics doesn't support the functions yet.
+  * Add lintian override for no upstream changelog, link to timeline.
+  * Add lintian override for missing man page, not useful for GUI program.
+  * Add Keywords entry to desktop file.
+  * Update copyright file.
+  * Change priority to optional, keep priority extra for -dbg package.
+
+ -- Bas Couwenberg <sebastic@xs4all.nl>  Mon, 30 Sep 2013 19:30:46 +0200
+
+spatialite-gui (1.6.0-1) experimental; urgency=low
+
+  * New upstream version
+  * Bump requirement on libspatialite to >= 4.0.0
+
+ -- David Paleino <dapal@debian.org>  Sat, 01 Dec 2012 21:55:23 +0100
+
+spatialite-gui (1.5.0-1) experimental; urgency=low
+
+  * New upstream version (Closes: #689192)
+  * Add missing Build-Depends on libgaiagraphics-dev and libfreexl-dev
+  * Bumped debhelper compatibility to 9
+  * Standards-Version bump to 3.9.4, no changes needed
+  * Updated debian/copyright
+
+ -- David Paleino <dapal@debian.org>  Sun, 30 Sep 2012 16:30:32 +0200
+
+spatialite-gui (1.2.1-3) unstable; urgency=low
+
+  * Fixed FTBS due to relinking in Makefile-linux and the new geos lib.
+    (closes: #663646)
+
+ -- Francesco Paolo Lovergine <frankie@debian.org>  Tue, 13 Mar 2012 00:20:05 +0100
+
+spatialite-gui (1.2.1-2) unstable; urgency=low
+
+  * Fix package description, be more verbose.
+
+ -- David Paleino <dapal@debian.org>  Wed, 23 Mar 2011 21:38:27 +0100
+
+spatialite-gui (1.2.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #610998)
+
+ -- David Paleino <dapal@debian.org>  Mon, 24 Jan 2011 19:45:15 +0100

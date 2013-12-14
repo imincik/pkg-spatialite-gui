@@ -1,0 +1,118 @@
+From: David Paleino <dapal@debian.org>
+Subject: fix typos in source code
+Forwarded: no
+
+---
+ Dialogs.cpp        |    2 +-
+ Exif.cpp           |    4 ++--
+ Main.cpp           |   12 ++++++------
+ MalformedGeoms.cpp |    2 +-
+ TableTree.cpp      |    4 ++--
+ 5 files changed, 12 insertions(+), 12 deletions(-)
+
+--- a/Exif.cpp
++++ b/Exif.cpp
+@@ -64,8 +64,8 @@ void MyFrame::ImportExifPhotos(wxString
+   else
+     cnt = ExifLoadFile(path, gps_only, metadata);
+   ::wxEndBusyCursor();
+-  sprintf(msg, "%d EXIF photo%s succesfully inserted into the DB\n", cnt,
+-          (cnt > 1) ? "s where" : " was");
++  sprintf(msg, "%d EXIF photo%s successfully inserted into the DB\n", cnt,
++          (cnt > 1) ? "s were" : " was");
+   wxMessageBox(wxString::FromUTF8(msg), wxT("spatialite_gui"),
+                wxOK | wxICON_INFORMATION, this);
+   InitTableTree();
+--- a/Dialogs.cpp
++++ b/Dialogs.cpp
+@@ -5306,7 +5306,7 @@ void AutoSaveDialog::OnChangePath(wxComm
+       MainFrame->SetExternalSqlitePath(pth);
+       if (MainFrame->MemoryDbSave() == true)
+         {
+-          wxMessageBox(wxT("Ok, MEMORY-DB was succesfully saved"),
++          wxMessageBox(wxT("Ok, MEMORY-DB was successfully saved"),
+                        wxT("spatialite_gui"), wxOK | wxICON_INFORMATION, this);
+           wxFileName file(fileDialog.GetPath());
+           lastDir = file.GetPath();
+--- a/Main.cpp
++++ b/Main.cpp
+@@ -2022,7 +2022,7 @@ void MyFrame::OnMemoryDbSave(wxCommandEv
+     {
+       if (MemoryDbSave() == true)
+         {
+-          wxMessageBox(wxT("Ok, MEMORY-DB was succesfully saved"),
++          wxMessageBox(wxT("Ok, MEMORY-DB was successfully saved"),
+                        wxT("spatialite_gui"), wxOK | wxICON_INFORMATION, this);
+           if (AutoSaveInterval <= 0)
+             {
+@@ -2062,7 +2062,7 @@ void MyFrame::OnMemoryDbSave(wxCommandEv
+       ExternalSqlitePath = fileDialog.GetPath();
+       if (MemoryDbSave() == true)
+         {
+-          wxMessageBox(wxT("Ok, MEMORY-DB was succesfully saved"),
++          wxMessageBox(wxT("Ok, MEMORY-DB was successfully saved"),
+                        wxT("spatialite_gui"), wxOK | wxICON_INFORMATION, this);
+           wxFileName file(fileDialog.GetPath());
+           lastDir = file.GetPath();
+@@ -2316,10 +2316,10 @@ void MyFrame::OnVacuum(wxCommandEvent &
+   } else
+     {
+       DbPagesCount(&totalPages2, &freePages2);
+-      msg = wxT("Current DB was succesfully optimized");
++      msg = wxT("Current DB was successfully optimized");
+       if (totalPages2 < totalPages)
+         {
+-          sprintf(dummy, "\n\n%d unused pages where reclaimed",
++          sprintf(dummy, "\n\n%d unused pages were reclaimed",
+                   totalPages - totalPages2);
+           msg += wxString::FromUTF8(dummy);
+         }
+@@ -2642,7 +2642,7 @@ void MyFrame::OnSqlScript(wxCommandEvent
+                 break;
+             }
+           sprintf(dummy,
+-                  "SQL Script normal termination\n\n%d SQL statements where performed",
++                  "SQL Script normal termination\n\n%d SQL statements were performed",
+                   stmt);
+           msg = wxString::FromUTF8(dummy);
+           wxMessageBox(msg, wxT("spatialite_gui"), wxOK | wxICON_INFORMATION,
+@@ -3724,7 +3724,7 @@ void MyFrame::LastDitchMemoryDbSave()
+           ExternalSqlitePath = fileDialog.GetPath();
+           if (MemoryDbSave() == true)
+             {
+-              wxMessageBox(wxT("Ok, MEMORY-DB was succesfully saved"),
++              wxMessageBox(wxT("Ok, MEMORY-DB was successfully saved"),
+                            wxT("spatialite_gui"), wxOK | wxICON_INFORMATION,
+                            this);
+               break;
+--- a/MalformedGeoms.cpp
++++ b/MalformedGeoms.cpp
+@@ -1009,7 +1009,7 @@ void MalformedGeomsDialog::OnRepair(wxCo
+       goto clean_up;
+     }
+   ::wxEndBusyCursor();
+-  wxMessageBox(wxT("Repair completed succesfully"),
++  wxMessageBox(wxT("Repair completed successfully"),
+                wxT("spatialite_gui"), wxOK | wxICON_INFORMATION, this);
+   wxDialog::EndModal(wxID_OK);
+   return;
+--- a/TableTree.cpp
++++ b/TableTree.cpp
+@@ -2374,7 +2374,7 @@ void MyTableTree::OnCmdRecoverSpatialInd
+       if (retval)
+         wxMessageBox(wxT("Spatial Index idx_") + obj->GetName() +
+                      wxT("_") + obj->GetColumn() +
+-                     wxT(" was succesfully recovered"), wxT("spatialite_gui"),
++                     wxT(" was successfully recovered"), wxT("spatialite_gui"),
+                      wxOK | wxICON_INFORMATION, this);
+       else
+         wxMessageBox(wxT("ERROR: unable to recover Spatial Index idx_") +
+@@ -3150,7 +3150,7 @@ void MyTableTree::OnCmdRepairPolygons(wx
+       if (count > 0)
+         {
+           char str[256];
+-          sprintf(str, "%d Geometries were succesfully updated", count);
++          sprintf(str, "%d Geometries were successfully updated", count);
+           wxMessageBox(wxString::FromUTF8(str), wxT("spatialite_gui"),
+                        wxOK | wxICON_INFORMATION, this);
+           ::wxEndBusyCursor();

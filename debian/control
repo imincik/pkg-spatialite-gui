@@ -1,0 +1,57 @@
+Source: spatialite-gui
+Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+Uploaders: David Paleino <dapal@debian.org>,
+           Bas Couwenberg <sebastic@xs4all.nl>
+Section: utils
+Priority: optional
+Build-Depends: debhelper (>= 9~),
+               dh-autoreconf,
+               pkg-config,
+               wx-common,
+               wx2.8-headers,
+               libwxgtk2.8-dev,
+               libspatialite-dev (>= 4.1.1-5~),
+               libproj-dev,
+               libgeos-dev,
+               librasterlite-dev (>= 1.1g-3~),
+               libgaiagraphics-dev (>= 0.5),
+               libfreexl-dev,
+               libxml2-dev
+Standards-Version: 3.9.5
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-grass/spatialite-gui.git
+Vcs-Git: git://anonscm.debian.org/pkg-grass/spatialite-gui.git
+Homepage: https://www.gaia-gis.it/fossil/spatialite_gui/
+
+Package: spatialite-gui
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: user-friendly graphical user interface for SpatiaLite
+ spatialite-gui is a Graphical User Interface (GUI) for SpatiaLite.
+ .
+ SpatiaLite is a SQLite extension that enables support of spatial (geometry)
+ data in a way conformant to OpenGis specifications, with both WKT and WKB
+ formats.
+ .
+ Spatialite also includes Virtualshape and Virtualtext to enable accessing
+ shapefiles and csv/text files as virtual tables.
+
+Package: spatialite-gui-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         spatialite-gui (= ${binary:Version})
+Description: user-friendly graphical user interface for spatialite - debugging symbols
+ spatialite-gui is a Graphical User Interface (GUI) for spatialite.
+ .
+ SpatiaLite is a SQLite extension that enables support of spatial (geometry)
+ data in a way conformant to OpenGis specifications, with both WKT and WKB
+ formats.
+ .
+ Spatialite also includes Virtualshape and Virtualtext to enable accessing
+ shapefiles and csv/text files as virtual tables.
+ .
+ This package contains debugging symbols.
+

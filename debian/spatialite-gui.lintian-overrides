@@ -1,0 +1,6 @@
+# Changes available only in the upstream VCS:
+# https://www.gaia-gis.it/fossil/spatialite_gui/timeline
+spatialite-gui: no-upstream-changelog
+
+# Man page not useful for GUI program
+spatialite-gui: binary-without-manpage usr/bin/spatialite-gui

@@ -1,0 +1,4 @@
+00-fix_buildsystem.patch
+01-fix_binary_name.patch
+02-fix_typos.patch
+03-link-sqlite3.patch

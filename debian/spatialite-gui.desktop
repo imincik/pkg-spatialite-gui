@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Spatialite GUI
+Exec=spatialite-gui
+Terminal=false
+Type=Application
+Categories=Development;Database;
+Keywords=spatial;sqlite;gis

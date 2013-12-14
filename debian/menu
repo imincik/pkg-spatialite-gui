@@ -1,0 +1,5 @@
+?package(spatialite-gui): \
+  needs="X11" \
+  section="Applications/Data Management" \
+  title="Spatialite GUI" \
+  command="/usr/bin/spatialite-gui"

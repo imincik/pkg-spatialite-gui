@@ -1,0 +1,24 @@
+Description: Link to sqlite3 library.
+Author: Bas Couwenberg <sebastic@xs4all.nl>
+Bug: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=713644
+Last-Update: 2013-09-30
+--- a/configure.ac
++++ b/configure.ac
+@@ -70,6 +70,8 @@ AC_CHECK_HEADERS(stddef.h,, [AC_MSG_ERRO
+ AC_CHECK_HEADERS(stdint.h,, [AC_MSG_ERROR([cannot find stdint.h, bailing out])])
+ AC_CHECK_HEADERS(sys/time.h,, [AC_MSG_ERROR([cannot find sys/time.h, bailing out])])
+ AC_CHECK_HEADERS(unistd.h,, [AC_MSG_ERROR([cannot find unistd.h, bailing out])])
++AC_CHECK_HEADERS(sqlite3.h,, [AC_MSG_ERROR([cannot find sqlite3.h, bailing out])])
++AC_CHECK_HEADERS(sqlite3ext.h,, [AC_MSG_ERROR([cannot find sqlite3ext.h, bailing out])])
+ 
+ # Checks for typedefs, structures, and compiler characteristics.
+ AC_C_CONST
+@@ -87,6 +89,8 @@ AC_FUNC_STAT
+ AC_FUNC_STRFTIME
+ AC_CHECK_FUNCS([memset sqrt strcasecmp strerror strncasecmp strstr fdatasync ftruncate getcwd gettimeofday localtime_r memmove strerror])
+ 
++# Checks for installed libraries
++AC_CHECK_LIB(sqlite3,sqlite3_prepare_v2,,AC_MSG_ERROR(['libsqlite3' is required but it doesn't seem to be installed on this system.]),-lm)
+ AC_CHECK_LIB(proj,pj_init_plus,,AC_MSG_ERROR(['libproj' is required but it doesn't seem to be installed on this system.]),-lm)
+ 
+ #-----------------------------------------------------------------------

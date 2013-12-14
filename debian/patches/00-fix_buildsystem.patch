@@ -1,0 +1,27 @@
+From: David Paleino <dapal@debian.org>
+Subject: fix buildsystem
+Origin: vendor
+Forwarded: no
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -6,7 +6,7 @@ AC_INIT(spatialite_gui, 1.7.1, a.furieri
+ AC_LANG(C)
+ AC_CONFIG_MACRO_DIR([m4])
+ 
+-AM_INIT_AUTOMAKE
++AM_INIT_AUTOMAKE([foreign])
+ AM_MAINTAINER_MODE
+ AM_CONFIG_HEADER(config.h)
+ 
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -13,7 +13,7 @@ spatialite_gui_SOURCES = Classdef.h Blob
+ 	TextCsv.cpp Wfs.cpp
+ 
+ LDADD = @WX_LIBS@ @LIBGAIAGRAPHICS_LIBS@ @LIBSPATIALITE_LIBS@ \
+-	@LIBFREEXL_LIBS@ @LIBXML2_LIBS@
++	@LIBFREEXL_LIBS@ @LIBXML2_LIBS@ -lgeos_c
+ 
+ EXTRA_DIST = Makefile-static-MinGW \
+         Makefile-static-Linux \
