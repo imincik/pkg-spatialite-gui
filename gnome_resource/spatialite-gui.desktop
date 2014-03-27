@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Spatialite GUI
+GenericName=GUI for Spatialite databases
+Comment=Manage Spatialite databases
+Exec=spatialite_gui
+Icon=spatialite-gui
+Terminal=false
+Type=Application
+Categories=Education;Geography;Science;

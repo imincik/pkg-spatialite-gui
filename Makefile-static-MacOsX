@@ -1,0 +1,81 @@
+# SandroFurieri (c) 2008
+# Makefile ( wxwidgets MacOsX) for spatialite-GUI
+
+SRC = Main.cpp TableTree.cpp QueryView.cpp ResultSetView.cpp BlobExplorer.cpp \
+	Dialogs.cpp Shapefiles.cpp Network.cpp Exif.cpp TextCsv.cpp \
+	Objects.cpp QueryViewComposer.cpp MalformedGeoms.cpp DialogsGraph.cpp
+OBJ = Main.o TableTree.o QueryView.o ResultSetView.o BlobExplorer.o Dialogs.o \
+	Shapefiles.o Network.o Exif.o TextCsv.o Objects.o QueryViewComposer.o \
+	MalformedGeoms.o DialogsGraph.o
+EXE = ./static_bin/spatialite_gui
+INCLUDE = Classdef.h 
+
+# Define default flags:
+CXXFLAGS = $(shell wx-config --cxxflags) -DSPATIALITE_AMALGAMATION
+LIB = $(shell wx-config --libs)
+EXTRAFLAGS = -Wall -Wextra -Wno-ctor-dtor-privacy \
+	-fno-strict-aliasing -I/usr/local/include -D_LARGE_FILE=1 \
+	-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1
+EXTRALIBS = /usr/local/lib/libspatialite.a /opt/local/lib/libgeos_c.a \
+	/opt/local/lib/libgeos.a /opt/local/lib/libproj.a  \
+	/usr/local/lib/libgaiagraphics.a /opt/local/lib/libgeotiff.a \
+        /opt/local/lib/libsqlite3.a /opt/local/lib/libcairo.a \
+        /opt/local/lib/libpixman-1.a /opt/local/lib/libfontconfig.a \
+        /opt/local/lib/libfreetype.a /opt/local/lib/libexpat.a \
+	/opt/local/lib/libtiff.a /opt/local/lib/libpng.a \
+	/opt/local/lib/libz.a /opt/local/lib/libjpeg.a \
+	/usr/local/lib/libfreexl.a \
+        /opt/local/lib/libcharset.a /opt/local/lib/libiconv.a
+
+
+all: $(EXE)
+
+$(EXE): $(OBJ) $(EXTRALIBS)
+	$(CXX) $(OBJ) -o $(EXE) $(LIB) $(EXTRALIBS) $(EXTRALIB2)
+	strip $(EXE)
+
+clean :
+	$(RM) $(OBJ) $(EXE)
+	
+Main.o: Main.cpp $(INCLUDE)
+	$(CXX) -c Main.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+TableTree.o: TableTree.cpp $(INCLUDE)
+	$(CXX) -c TableTree.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+QueryView.o: QueryView.cpp $(INCLUDE)
+	$(CXX) -c QueryView.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+ResultSetView.o: ResultSetView.cpp $(INCLUDE)
+	$(CXX) -c ResultSetView.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+BlobExplorer.o: BlobExplorer.cpp $(INCLUDE)
+	$(CXX) -c BlobExplorer.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+Dialogs.o: Dialogs.cpp $(INCLUDE)
+	$(CXX) -c Dialogs.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+DialogsGraph.o: DialogsGraph.cpp $(INCLUDE)
+	$(CXX) -c DialogsGraph.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+Shapefiles.o: Shapefiles.cpp $(INCLUDE)
+	$(CXX) -c Shapefiles.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+Network.o: Network.cpp $(INCLUDE)
+	$(CXX) -c Network.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+Exif.o: Exif.cpp $(INCLUDE)
+	$(CXX) -c Exif.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+TextCsv.o: TextCsv.cpp $(INCLUDE)
+	$(CXX) -c TextCsv.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+Objects.o: Objects.cpp $(INCLUDE)
+	$(CXX) -c Objects.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+QueryViewComposer.o: QueryViewComposer.cpp $(INCLUDE)
+	$(CXX) -c QueryViewComposer.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+
+MalformedGeoms.o: MalformedGeoms.cpp $(INCLUDE)
+	$(CXX) -c MalformedGeoms.cpp $(CXXFLAGS) $(EXTRAFLAGS)
+								
