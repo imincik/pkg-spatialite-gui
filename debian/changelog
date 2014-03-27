@@ -1,3 +1,9 @@
+spatialite-gui (1.7.1-2~precise1) precise; urgency=low
+
+  * Rebuild on Precise. 
+
+ -- Ivan Mincik <ivan.mincik@gmail.com>  Thu, 27 Mar 2014 15:53:38 +0100
+
 spatialite-gui (1.7.1-2) experimental; urgency=low
 
   * Bump Standards-Version to 3.9.5, no changes required.
